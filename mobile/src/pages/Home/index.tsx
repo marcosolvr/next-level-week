@@ -14,7 +14,6 @@ import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import RNPickerSelect from "react-native-picker-select";
 import axios from "axios";
-import { isBackgroundLocationAvailableAsync } from "expo-location";
 
 const pickerPlaceholderUf = {
   label: "Selecione um estado",
@@ -54,10 +53,11 @@ function Home() {
         "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
       )
       .then((res) => {
-        let ufs: Item[] = [];
-        const ufInitials = res.data.map((uf) => uf.sigla);
-        ufInitials.map((uf) => ufs.push({ value: uf, label: uf }));
-        setUf(ufs);
+        const ufInitials: Item[] = res.data.map((uf) => ({
+          value: uf.sigla,
+          label: uf.sigla,
+        }));
+        setUf(ufInitials);
       });
   }, []);
 
