@@ -4,9 +4,6 @@ import {
   View,
   Image,
   StyleSheet,
-  Text,
-  ImageBackground,
-  TextInput,
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
@@ -14,6 +11,14 @@ import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import RNPickerSelect from "react-native-picker-select";
 import axios from "axios";
+import {
+  Container,
+  Main,
+  Title,
+  Description,
+  ButtonIcon,
+  ButtonText,
+} from "./styles";
 
 const pickerPlaceholderUf = {
   label: "Selecione um estado",
@@ -87,25 +92,22 @@ function Home() {
       style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
-      <ImageBackground
+      <Container
         source={require("../../assets/home-background.png")}
-        style={styles.container}
         imageStyle={{ width: 274, height: 368 }}
       >
-        <View style={styles.main}>
+        <Main>
           <Image source={require("../../assets/logo.png")} />
           <View>
-            <Text style={styles.title}>
-              Seu marketplace de coleta de resíduos
-            </Text>
-            <Text style={styles.description}>
+            <Title>Seu marketplace de coleta de resíduos</Title>
+            <Description>
               Ajudamos pessoas a encontrarem pontos de coleta de forma
               eficiente.
-            </Text>
+            </Description>
           </View>
-        </View>
+        </Main>
 
-        <View style={styles.footer}>
+        <View>
           <RNPickerSelect
             style={pickerSelectStyles}
             placeholder={pickerPlaceholderUf}
@@ -142,58 +144,18 @@ function Home() {
           />
 
           <RectButton style={styles.button} onPress={handleNavigateToPoints}>
-            <View style={styles.buttonIcon}>
+            <ButtonIcon>
               <Icon name="arrow-right" color="#FFF" size={24} />
-            </View>
-            <Text style={styles.buttonText}>Entrar</Text>
+            </ButtonIcon>
+            <ButtonText>Entrar</ButtonText>
           </RectButton>
         </View>
-      </ImageBackground>
+      </Container>
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 32,
-  },
-
-  main: {
-    flex: 1,
-    justifyContent: "center",
-  },
-
-  title: {
-    color: "#322153",
-    fontSize: 32,
-    fontFamily: "Ubuntu_700Bold",
-    maxWidth: 260,
-    marginTop: 64,
-  },
-
-  description: {
-    color: "#6C6C80",
-    fontSize: 16,
-    marginTop: 16,
-    fontFamily: "Roboto_400Regular",
-    maxWidth: 260,
-    lineHeight: 24,
-  },
-
-  footer: {},
-
-  select: {},
-
-  input: {
-    height: 60,
-    backgroundColor: "#FFF",
-    borderRadius: 10,
-    marginBottom: 8,
-    paddingHorizontal: 24,
-    fontSize: 16,
-  },
-
   button: {
     backgroundColor: "#34CB79",
     height: 60,
