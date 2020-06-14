@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
+import { RectButton } from "react-native-gesture-handler";
 
-export const Container = styled.ImageBackground`
+export const Container = styled.ImageBackground.attrs({
+  source: require("../../assets/home-background.png"),
+  imageStyle: { width: 274, height: 368 },
+})`
   flex: 1;
   padding: 32px;
 `;
@@ -36,15 +40,15 @@ export const Input = styled.TextInput`
   font-size: 16px;
 `;
 
-// export const Button = styled.RectButton`
-//   background-color: #34cb79;
-//   height: 60px;
-//   flex-direction: row;
-//   border-radius: 10px;
-//   overflow: hidden;
-//   align-items: center;
-//   margin-top: 8px;
-// `;
+export const Button = styled(RectButton)`
+  background-color: #34cb79;
+  height: 60px;
+  flex-direction: row;
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+  margin-top: 8px;
+`;
 
 export const ButtonIcon = styled.View`
   height: 60px;
@@ -62,3 +66,27 @@ export const ButtonText = styled.Text`
   font-family: Roboto_500Medium;
   font-size: 16px;
 `;
+
+export const pickerSelectStyles = {
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: "gray",
+    borderRadius: 4,
+    color: "black",
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  inputAndroid: {
+    height: 60,
+    backgroundColor: "#FFF",
+    borderRadius: 10,
+    marginBottom: 8,
+    paddingHorizontal: 24,
+    fontSize: 16,
+  },
+  icon: { marginTop: 21, marginRight: 20 },
+  color: "#9EA0A4",
+  iconSize: 20,
+};
