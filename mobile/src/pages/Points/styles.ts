@@ -75,43 +75,21 @@ export const MapMarker = styled(Marker)`
   height: 80px;
 `;
 
-export const ItemList = {
-  backgroundColor: "#fff",
-  borderWidth: 2,
-  borderColor: "#eee",
-  height: 120,
-  width: 120,
-  borderRadius: 8,
-  paddingHorizontal: 16,
-  paddingTop: 20,
-  paddingBottom: 16,
-  marginRight: 8,
-  alignItems: "center",
-  justifyContent: "space-between",
+export const ItemList = styled.TouchableOpacity`
+  background-color: #fff;
+  height: 120px;
+  width: 120px;
+  border-radius: 8px;
+  padding-horizontal: 16px;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  margin-right: 8px;
+  align-items: center;
+  justify-content: space-between;
+  border-width: 2px;
 
-  textAlign: "center",
-};
+  text-align: center;
 
-export const SelectedItems = {
-  borderColor: "#34CB79",
-  borderWidth: 2,
-};
-
-// export const Footer = styled.View`
-//   border-top-width: ${StyleSheet.hairlineWidth}px;
-//   border-color: #999;
-//   padding-vertical: 20px;
-//   padding-horizontal: 32px;
-//   flex-direction: row;
-//   justify-content: space-between;
-// `;
-
-// export const Button = styled(RectButton)`
-//   width: 48%;
-//   background-color: #34cb79;
-//   border-radius: 10px;
-//   height: 50px;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-// `;
+  ${({ selected }: any) =>
+    selected ? `border-color: #34CB79;` : `border-color: #eee;`}
+`;

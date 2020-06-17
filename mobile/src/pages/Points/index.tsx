@@ -18,7 +18,6 @@ import {
   Map,
   MapMarker,
   ItemList,
-  SelectedItems,
 } from "./styles";
 
 interface Item {
@@ -169,18 +168,15 @@ const Points = () => {
           contentContainerStyle={{ paddingHorizontal: 20 }}
         >
           {items.map((item) => (
-            <TouchableOpacity
+            <ItemList
               key={String(item.id)}
-              style={[
-                ItemList,
-                selectedItems.includes(item.id) ? SelectedItems : {},
-              ]}
+              selected={selectedItems.includes(item.id)}
               onPress={() => handleSelectItem(item.id)}
               activeOpacity={0.6}
             >
               <SvgUri width={42} height={42} uri={item.image_url} />
               <ItemTitle>{item.title}</ItemTitle>
-            </TouchableOpacity>
+            </ItemList>
           ))}
         </ScrollView>
       </ItemsContainer>
