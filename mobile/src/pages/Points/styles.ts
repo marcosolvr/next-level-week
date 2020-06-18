@@ -90,6 +90,6 @@ export const ItemList = styled.TouchableOpacity`
 
   text-align: center;
 
-  ${({ selected }: any) =>
+  ${({ selected }) =>
     selected ? `border-color: #34CB79;` : `border-color: #eee;`}
 `;
