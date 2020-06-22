@@ -46,6 +46,7 @@ This project was developed with the following technologies:
 
 - [Node.js][nodejs]
 - [TypeScript][typescript]
+- [Styled Components][styledcomponents]
 - [React][reactjs]
 - [React Native][rn]
 - [Expo][expo]
@@ -128,6 +129,7 @@ $ expo install expo-font @expo-google-fonts/ubuntu @expo-google-fonts/roboto
 [typescript]: https://www.typescriptlang.org/
 [expo]: https://expo.io/
 [reactjs]: https://reactjs.org
+[styledcomponents]: https://styled-components.com/
 [rn]: https://facebook.github.io/react-native/
 [yarn]: https://yarnpkg.com/
 [vs]: https://code.visualstudio.com/
